@@ -121,13 +121,12 @@ function Game:checkSquareCollision(ball)
 
 		local i = math.floor(checkX / self.SQUARE_SIZE) + 1
 		local j = math.floor(checkY / self.SQUARE_SIZE) + 1
-		-- print(ball.color, i, j, checkX, checkY)
 
 		if
 			i >= 0
-			and i < self.squaresCountX
+			and i <= self.squaresCountX
 			and j >= 0
-			and j < self.squaresCountY
+			and j <= self.squaresCountY
 		then
 			if self.field[i][j] ~= ball.reverseColor then
 				self.field[i][j] = ball.reverseColor
