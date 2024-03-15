@@ -99,7 +99,7 @@ function Game:draw()
 		love.graphics.setColor(Color(ball.color))
 		love.graphics.circle("fill", ball.x, ball.y, self.SQUARE_SIZE / 2)
 	end
-	love.graphics.print(self.DAY_SCORE .. " : " .. self.NIGHT_SCORE, 270, 650)
+	love.graphics.print(self.DAY_SCORE .. " : " .. self.NIGHT_SCORE, 240, 630)
 end
 
 function Game:checkBoundaryCollision(ball)
