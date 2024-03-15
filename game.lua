@@ -1,7 +1,7 @@
 Game = Object:extend()
 
 function Game:new()
-	self.screen_height = love.graphics.getHeight()
+	self.screen_height = love.graphics.getHeight() - 100
 	self.screen_width = love.graphics.getWidth()
 	self.SQUARE_SIZE = 25
 	self.MIN_SPEED = 5
@@ -31,8 +31,10 @@ function Game:new()
 		for j = 1, self.squaresCountY do
 			if i <= math.floor(self.squaresCountX / 2) then
 				self.field[i][j] = self.DAY_COLOR
+				self.DAY_SCORE = self.DAY_SCORE + 1
 			else
 				self.field[i][j] = self.NIGHT_COLOR
+				self.NIGHT_SCORE = self.NIGHT_SCORE + 1
 			end
 		end
 	end
@@ -97,6 +99,7 @@ function Game:draw()
 		love.graphics.setColor(Color(ball.color))
 		love.graphics.circle("fill", ball.x, ball.y, self.SQUARE_SIZE / 2)
 	end
+	love.graphics.print(self.DAY_SCORE .. " : " .. self.NIGHT_SCORE, 270, 650)
 end
 
 function Game:checkBoundaryCollision(ball)
